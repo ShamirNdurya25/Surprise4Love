@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Message For You My Love ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(to right,#ff9a9e,#fad0c4,#fbc2eb);
+overflow-x:hidden;
+text-align:center;
+cursor:none;
+}
+
+/* layout */
+
+.layout{
+display:flex;
+justify-content:center;
+gap:10px;
+}
+
+.side{
+width:25%;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.side img{
+width:90%;
+border-radius:15px;
+opacity:0;
+animation:fadeInImage 1s forwards;
+}
+
+.center{
+width:50%;
+padding:10px;
+}
+
+h1{
+color:#ff0066;
+animation:pulse 2s infinite;
+}
+
+p{
+font-size:1.2em;
+color:#550033;
+animation:fadeInText 2s forwards;
+}
+
+/* mobile */
+
+@media(max-width:800px){
+
+.layout{
+flex-direction:column;
+align-items:center;
+}
+
+.side{
+width:100%;
+flex-direction:row;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.center{
+width:90%;
+}
+
+}
+
+/* animations */
+
+@keyframes pulse{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.1)}
+}
+
+@keyframes fadeInText{
+from{opacity:0}
+to{opacity:1}
+}
+
+@keyframes fadeInImage{
+from{opacity:0;transform:scale(.8)}
+to{opacity:1}
+}
+
+/* flying emoji hearts */
+
+.emoji-heart{
+position:fixed;
+bottom:-50px;
+font-size:22px;
+animation:flyHeart linear infinite;
+z-index:999;
+pointer-events:none;
+}
+
+@keyframes flyHeart{
+0%{transform:translateY(0);opacity:1}
+100%{transform:translateY(-120vh);opacity:0}
+}
+
+/* cursor hearts */
+
+.cursor-heart{
+position:absolute;
+font-size:14px;
+pointer-events:none;
+animation:fadeUp 1s forwards;
+}
+
+@keyframes fadeUp{
+to{transform:translateY(-50px);opacity:0}
+}
+
+/* final heart */
+
+#finalHeart{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0);
+font-size:80px;
+z-index:9999;
+animation:showHeart 2s forwards 5s;
+}
+
+@keyframes showHeart{
+to{transform:translate(-50%,-50%) scale(1)}
+}
+
+/* heart particles */
+
+.big-heart{
+position:fixed;
+font-size:20px;
+opacity:0;
+animation:heartShape 3s forwards;
+}
+
+@keyframes heartShape{
+to{opacity:1}
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="layout">
+
+<div class="side">
+
+<img src="Love1.2025.jpeg">
+<img src="Love2.2025.jpeg">
+<img src="Love3.2025.jpeg">
+
+</div>
+
+
+<div class="center">
+
+<h1>To My Lovely Petronila ❤️</h1>
+
+<p>
+
+My Love 💘 <br><br>
+
+Since the moment you stepped into my life,
+everything became brighter and more meaningful.
+
+Your smile is my peace,
+your laughter is my happiness,
+and your love is the greatest gift I have ever received.
+
+You changed my life in ways I never imagined,
+and every day with you feels like a blessing.
+
+Thank you for being my joy,
+my strength,
+my comfort,
+and my forever.
+
+I love you more than words can explain,
+more than the stars in the sky,
+more than my heart can hold.
+
+Forever yours ❤️
+
+</p>
+
+</div>
+
+
+<div class="side">
+
+<img src="Love4.2025.jpeg">
+<img src="Love5.2025.jpeg">
+<img src="Love6.2025.jpeg">
+
+</div>
+
+</div>
+
+
+<div id="finalHeart">❤️</div>
+
+
+
+<script>
+
+
+/* flying hearts */
+
+function createHeart(){
+
+let h=document.createElement("div")
+
+h.className="emoji-heart"
+
+h.innerHTML="❤️"
+
+h.style.left=Math.random()*100+"vw"
+
+h.style.animationDuration=3+Math.random()*4+"s"
+
+document.body.appendChild(h)
+
+setTimeout(()=>h.remove(),7000)
+
+}
+
+setInterval(createHeart,400)
+
+
+
+/* cursor hearts */
+
+document.addEventListener("mousemove",e=>{
+
+let h=document.createElement("div")
+
+h.className="cursor-heart"
+
+h.innerHTML="❤️"
+
+h.style.left=e.clientX+"px"
+
+h.style.top=e.clientY+"px"
+
+document.body.appendChild(h)
+
+setTimeout(()=>h.remove(),1000)
+
+})
+
+
+
+/* BIG HEART SHAPE EFFECT */
+
+setTimeout(()=>{
+
+let centerX=window.innerWidth/2
+let centerY=window.innerHeight/2
+
+for(let t=0;t<Math.PI*2;t+=0.2){
+
+let x=16*Math.pow(Math.sin(t),3)
+let y=13*Math.cos(t)
+-5*Math.cos(2*t)
+-2*Math.cos(3*t)
+-Math.cos(4*t)
+
+let heart=document.createElement("div")
+
+heart.className="big-heart"
+
+heart.innerHTML="❤️"
+
+heart.style.left=centerX+x*10+"px"
+heart.style.top=centerY-y*10+"px"
+
+document.body.appendChild(heart)
+
+}
+
+},6000)
+
+
+
+</script>
+
+</body>
+</html>
